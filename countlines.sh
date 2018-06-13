@@ -1,0 +1,1 @@
+find . -name '*.java' -o -name "*.xml" | xargs wc -l
