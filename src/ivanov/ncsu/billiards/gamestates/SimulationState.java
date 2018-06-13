@@ -1,20 +1,20 @@
-package edu.ncsu.billiards.gamestates;
+package ivanov.ncsu.billiards.gamestates;
 
-import edu.ncsu.billiards.Billiards;
-import edu.ncsu.billiards.Renderer;
+import ivanov.ncsu.billiards.Billiards;
+import ivanov.ncsu.billiards.Renderer;
 
-import edu.ncsu.billiards.gameobjects.Cushion;
-import edu.ncsu.billiards.gameobjects.Pocket;
-import edu.ncsu.billiards.gameobjects.PoolBall;
-import edu.ncsu.billiards.gameobjects.VelocityLine;
+import ivanov.ncsu.billiards.gameobjects.Cushion;
+import ivanov.ncsu.billiards.gameobjects.Pocket;
+import ivanov.ncsu.billiards.gameobjects.PoolBall;
+import ivanov.ncsu.billiards.gameobjects.VelocityLine;
 
-import edu.ncsu.billiards.gamestates.GameState;
+import ivanov.ncsu.billiards.gamestates.GameState;
 
-import edu.ncsu.billiards.setups.Setup;
+import ivanov.ncsu.billiards.setups.Setup;
 
-import edu.ncsu.billiards.world.BilliardsWorld;
-import edu.ncsu.billiards.world.GameWorld;
-import edu.ncsu.billiards.world.PredictionWorld;
+import ivanov.ncsu.billiards.world.BilliardsWorld;
+import ivanov.ncsu.billiards.world.GameWorld;
+import ivanov.ncsu.billiards.world.PredictionWorld;
 
 import org.dyn4j.dynamics.Body;
 

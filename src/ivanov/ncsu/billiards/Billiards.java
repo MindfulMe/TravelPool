@@ -1,7 +1,7 @@
-package edu.ncsu.billiards;
+package ivanov.ncsu.billiards;
 
-import edu.ncsu.billiards.gamestates.GameState;
-import edu.ncsu.billiards.gamestates.MenuState;
+import ivanov.ncsu.billiards.gamestates.GameState;
+import ivanov.ncsu.billiards.gamestates.MenuState;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;

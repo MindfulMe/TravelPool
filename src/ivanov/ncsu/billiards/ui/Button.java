@@ -1,4 +1,4 @@
-package edu.ncsu.billiards.ui;
+package ivanov.ncsu.billiards.ui;
 
 import org.newdawn.slick.geom.Rectangle;
 
@@ -10,7 +10,6 @@ public class Button {
 	private int y;
 
 	private String label;
-
 
 
 	public Button(String label) {

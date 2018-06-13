@@ -1,7 +1,7 @@
-package edu.ncsu.billiards.world;
+package ivanov.ncsu.billiards.world;
 
-import edu.ncsu.billiards.gameobjects.Pocket;
-import edu.ncsu.billiards.gameobjects.PoolBall;
+import ivanov.ncsu.billiards.gameobjects.Pocket;
+import ivanov.ncsu.billiards.gameobjects.PoolBall;
 
 import java.util.ArrayList;
 

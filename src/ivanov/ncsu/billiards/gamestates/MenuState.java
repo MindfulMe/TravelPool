@@ -1,13 +1,13 @@
-package edu.ncsu.billiards.gamestates;
+package ivanov.ncsu.billiards.gamestates;
 
-import edu.ncsu.billiards.Billiards;
-import edu.ncsu.billiards.Renderer;
+import ivanov.ncsu.billiards.Billiards;
+import ivanov.ncsu.billiards.Renderer;
 
-import edu.ncsu.billiards.gamestates.SimulationState;
+import ivanov.ncsu.billiards.gamestates.SimulationState;
 
-import edu.ncsu.billiards.setups.GlancingBlowSetup;
+import ivanov.ncsu.billiards.setups.GlancingBlowSetup;
 
-import edu.ncsu.billiards.ui.Button;
+import ivanov.ncsu.billiards.ui.Button;
 
 import java.util.ArrayList;
 
@@ -44,9 +44,9 @@ public class MenuState implements GameState {
 	}
 
 	private void setupButtons() {
-		glancingBlowButton = new Button("// Play!");
+		glancingBlowButton = new Button("// PLAY!");
 	
-		exitButton = new Button("// Exit Game!");
+		exitButton = new Button("// EXIT GAME!");
 
 		buttons = new ArrayList<Button>();
 
@@ -68,7 +68,7 @@ public class MenuState implements GameState {
 		for (int i = 0; i < buttons.size(); i++) {
 			Button button = buttons.get(i);
 			
-			button.setX((windowWidth - button.getWidth()) / 2);
+			button.setX((windowWidth - button.getWidth()));
 			button.setY(verticalOffset);
 
 			verticalOffset = verticalOffset + button.getHeight() + margin;

@@ -1,8 +1,8 @@
-package edu.ncsu.billiards.setups;
+package ivanov.ncsu.billiards.setups;
 
-import edu.ncsu.billiards.gameobjects.Cushion;
-import edu.ncsu.billiards.gameobjects.Pocket;
-import edu.ncsu.billiards.gameobjects.PoolBall;
+import ivanov.ncsu.billiards.gameobjects.Cushion;
+import ivanov.ncsu.billiards.gameobjects.Pocket;
+import ivanov.ncsu.billiards.gameobjects.PoolBall;
 
 import java.util.ArrayList;
 

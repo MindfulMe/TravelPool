@@ -1,4 +1,4 @@
-package edu.ncsu.billiards.gameobjects;
+package ivanov.ncsu.billiards.gameobjects;
 
 import org.dyn4j.geometry.Vector2;
 

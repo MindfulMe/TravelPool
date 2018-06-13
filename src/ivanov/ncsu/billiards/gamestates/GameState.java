@@ -1,6 +1,6 @@
-package edu.ncsu.billiards.gamestates;
+package ivanov.ncsu.billiards.gamestates;
 
-import edu.ncsu.billiards.Billiards;
+import ivanov.ncsu.billiards.Billiards;
 
 import org.newdawn.slick.Graphics;
 

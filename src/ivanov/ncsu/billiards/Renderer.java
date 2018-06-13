@@ -1,11 +1,11 @@
-package edu.ncsu.billiards;
+package ivanov.ncsu.billiards;
 
-import edu.ncsu.billiards.gameobjects.Cushion;
-import edu.ncsu.billiards.gameobjects.Pocket;
-import edu.ncsu.billiards.gameobjects.PoolBall;
-import edu.ncsu.billiards.gameobjects.VelocityLine;
+import ivanov.ncsu.billiards.gameobjects.Cushion;
+import ivanov.ncsu.billiards.gameobjects.Pocket;
+import ivanov.ncsu.billiards.gameobjects.PoolBall;
+import ivanov.ncsu.billiards.gameobjects.VelocityLine;
 
-import edu.ncsu.billiards.ui.Button;
+import ivanov.ncsu.billiards.ui.Button;
 
 import org.dyn4j.geometry.Vector2;
 
