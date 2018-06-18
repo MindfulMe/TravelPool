@@ -1,4 +1,5 @@
 # TravelPool
+Authors of the version: Rostyslav Gogolauri, Vladislav Lypoviy
 The University Task
 
 
