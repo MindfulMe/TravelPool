@@ -1,7 +1,7 @@
-package ivanov.ncsu.billiards.world;
+package edu.ncsu.billiards.world;
 
-import ivanov.ncsu.billiards.gameobjects.Pocket;
-import ivanov.ncsu.billiards.gameobjects.PoolBall;
+import edu.ncsu.billiards.gameobjects.Pocket;
+import edu.ncsu.billiards.gameobjects.PoolBall;
 
 import java.util.ArrayList;
 
@@ -52,7 +52,10 @@ public class GameWorld extends BilliardsWorld {
 				ball.setExiting(isInContact);
 			}
 		}
-		
+
+		// check for future balls entering the world. We can't
+		// use an enhanced for loop because that messes up the
+		// ArrayList iterator and throws a ConcurrentModificationException
 		for (int i = 0; i < futureBalls.size(); i++) {
 			if (futureBalls.get(i).getEntryTime() <= getTime()) {
 				PoolBall ball = removeFutureBall(i);

@@ -1,7 +1,7 @@
-package ivanov.ncsu.billiards;
+package edu.ncsu.billiards;
 
-import ivanov.ncsu.billiards.gamestates.GameState;
-import ivanov.ncsu.billiards.gamestates.MenuState;
+import edu.ncsu.billiards.gamestates.GameState;
+import edu.ncsu.billiards.gamestates.MenuState;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
@@ -11,17 +11,21 @@ import org.newdawn.slick.SlickException;
 
 public class Billiards extends BasicGame {
 	// window title
-	private static final String GAME_TITLE = "Really really need a pass ::-/";
+	private static final String GAME_TITLE = "Billiards";
 
 	// dimensions in pixels
-	private static final int WINDOW_WIDTH  = 922;
-	private static final int WINDOW_HEIGHT = 502;
+	private static final int WINDOW_WIDTH  = 872;
+	private static final int WINDOW_HEIGHT = 472;
 
 	private GameState gameState;
+
+
 
 	public Billiards() {
 		super(GAME_TITLE);
 	}
+
+
 
 	@Override
 	public void init(GameContainer container) throws SlickException {

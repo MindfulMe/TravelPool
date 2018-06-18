@@ -1,13 +1,15 @@
-package ivanov.ncsu.billiards.gamestates;
+package edu.ncsu.billiards.gamestates;
 
-import ivanov.ncsu.billiards.Billiards;
-import ivanov.ncsu.billiards.Renderer;
+import edu.ncsu.billiards.Billiards;
+import edu.ncsu.billiards.Renderer;
 
-import ivanov.ncsu.billiards.gamestates.SimulationState;
+import edu.ncsu.billiards.gamestates.SimulationState;
 
-import ivanov.ncsu.billiards.setups.GlancingBlowSetup;
+import edu.ncsu.billiards.setups.GlancingBlowSetup;
+import edu.ncsu.billiards.setups.NoCollisionSetup;
+import edu.ncsu.billiards.setups.ParadoxSetup;
 
-import ivanov.ncsu.billiards.ui.Button;
+import edu.ncsu.billiards.ui.Button;
 
 import java.util.ArrayList;
 
@@ -25,11 +27,15 @@ public class MenuState implements GameState {
 
 	private InputHandler inputHandler;
 
+	private Button noCollisionButton;
 	private Button glancingBlowButton;
-	
+	private Button paradoxButton;
 	private Button exitButton;
 
 	private ArrayList<Button> buttons;
+
+
+
 
 
 	public MenuState(int windowWidth, int windowHeight) throws SlickException {
@@ -44,18 +50,20 @@ public class MenuState implements GameState {
 	}
 
 	private void setupButtons() {
-		glancingBlowButton = new Button("// PLAY!");
-	
-		exitButton = new Button("// EXIT GAME!");
+		noCollisionButton = new Button("No collision");
+		glancingBlowButton = new Button("Glancing blow");
+		paradoxButton = new Button("Paradox");
+		exitButton = new Button("Exit");
 
 		buttons = new ArrayList<Button>();
 
+		buttons.add(noCollisionButton);
 		buttons.add(glancingBlowButton);
-		
+		buttons.add(paradoxButton);
 		buttons.add(exitButton);
 
-		// 10 pixels of vertical space between buttons
-		int margin = 10;
+		// 20 pixels of vertical space between buttons
+		int margin = 20;
 
 		// height of all buttons plus margin
 		int totalButtonHeight = margin * (buttons.size() - 1);
@@ -68,12 +76,16 @@ public class MenuState implements GameState {
 		for (int i = 0; i < buttons.size(); i++) {
 			Button button = buttons.get(i);
 			
-			button.setX((windowWidth - button.getWidth()));
+			button.setX((windowWidth - button.getWidth()) / 2);
 			button.setY(verticalOffset);
 
 			verticalOffset = verticalOffset + button.getHeight() + margin;
 		}
 	}
+
+
+
+
 
 	public void update(double delta) {
 		
@@ -82,14 +94,24 @@ public class MenuState implements GameState {
 	public void render(Graphics graphics) {
 		Renderer.render(menuBackground, 0, 0, graphics);
 
+		Renderer.render("Time Travel Pool", 100, 100, graphics);
+
 		for (Button button : buttons) {
 			Renderer.render(button, graphics);
 		}
 	}
 
+
+
+
+
 	public void enter(Billiards game) {
 		this.game = game;
 	}
+
+
+
+
 
 	public void mouseClicked(int button, float x, float y, int clickCount) {
 		inputHandler.mouseClicked(button, x, y, clickCount);
@@ -123,8 +145,14 @@ public class MenuState implements GameState {
 		}
 
 		public void mouseClicked(int button, float x, float y, int clickCount) {
-			if (glancingBlowButton.getHitBox().contains(x, y)) {
+			if (noCollisionButton.getHitBox().contains(x, y)) {
+				game.changeState(new SimulationState(new NoCollisionSetup()));
+
+			} else if (glancingBlowButton.getHitBox().contains(x, y)) {
 				game.changeState(new SimulationState(new GlancingBlowSetup()));
+
+			} else if (paradoxButton.getHitBox().contains(x, y)) {
+				game.changeState(new SimulationState(new ParadoxSetup()));
 
 			} else if (exitButton.getHitBox().contains(x, y)) {
 				System.exit(0);

@@ -1,8 +1,8 @@
-package ivanov.ncsu.billiards.world;
+package edu.ncsu.billiards.world;
 
-import ivanov.ncsu.billiards.gameobjects.Cushion;
-import ivanov.ncsu.billiards.gameobjects.Pocket;
-import ivanov.ncsu.billiards.gameobjects.PoolBall;
+import edu.ncsu.billiards.gameobjects.Cushion;
+import edu.ncsu.billiards.gameobjects.Pocket;
+import edu.ncsu.billiards.gameobjects.PoolBall;
 
 import java.util.ArrayList;
 
@@ -13,6 +13,7 @@ public abstract class BilliardsWorld extends World {
 	private ArrayList<Pocket> pockets;
 	private ArrayList<Cushion> cushions; 
 
+	// the time in milliseconds
 	private double time;
 
 
@@ -40,23 +41,23 @@ public abstract class BilliardsWorld extends World {
 
 
 	public void addCurrentBall(PoolBall ball) {
-		
+		// add to currentBalls
 		currentBalls.add(ball);
-		
+		// add to world
 		addBody(ball);
 	}
 
 	public void addPocket(Pocket pocket) {
-	
+		// add to currentBalls
 		pockets.add(pocket);
-		// add to the world
+		// add to world
 		addBody(pocket);
 	}
 
 	public void addCushion(Cushion cushion) {
-		
+		// add to currentBalls
 		cushions.add(cushion);
-		
+		// add to world
 		addBody(cushion);
 	}
 
@@ -87,9 +88,10 @@ public abstract class BilliardsWorld extends World {
 
 
 	public void removeCurrentBall(PoolBall ball) {
-		
+		// remove from currentBalls
 		getCurrentBalls().remove(ball);
 
+		// remove from world
 		removeBody(ball);
 	}
 
@@ -102,9 +104,10 @@ public abstract class BilliardsWorld extends World {
 	}
 
 	public void removePocket(Pocket pocket) {
-		
+		// remove from pockets
 		getPockets().remove(pocket);
 
+		// remove from world
 		removeBody(pocket);
 	}
 
@@ -120,9 +123,9 @@ public abstract class BilliardsWorld extends World {
 
 	public boolean hasMovingBalls() {
 		for (PoolBall ball : currentBalls) {
-
+			// if ball is not asleep
 			if (!ball.isAsleep()) {
-				
+				// ball is moving
 				return true;
 			}
 		}

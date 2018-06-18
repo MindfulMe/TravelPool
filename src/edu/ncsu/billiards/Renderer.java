@@ -1,11 +1,11 @@
-package ivanov.ncsu.billiards;
+package edu.ncsu.billiards;
 
-import ivanov.ncsu.billiards.gameobjects.Cushion;
-import ivanov.ncsu.billiards.gameobjects.Pocket;
-import ivanov.ncsu.billiards.gameobjects.PoolBall;
-import ivanov.ncsu.billiards.gameobjects.VelocityLine;
+import edu.ncsu.billiards.gameobjects.Cushion;
+import edu.ncsu.billiards.gameobjects.Pocket;
+import edu.ncsu.billiards.gameobjects.PoolBall;
+import edu.ncsu.billiards.gameobjects.VelocityLine;
 
-import ivanov.ncsu.billiards.ui.Button;
+import edu.ncsu.billiards.ui.Button;
 
 import org.dyn4j.geometry.Vector2;
 
@@ -16,8 +16,9 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 
 public class Renderer {
-
-	public static final float SCALE = 358;
+	// Pixels per meter
+	// 8 feet is 2.4 meters. 800 pixels / 2.4 meters is 328 pixels per meter.
+	public static final float SCALE = 328;
 
 	public static void render(Cushion cushion, Graphics graphics) {
 		graphics.setColor(Color.orange);
@@ -51,7 +52,7 @@ public class Renderer {
 		if (!ball.isAsleep()) {
 			graphics.setColor(ball.getColor());
 		} else {
-			graphics.setColor(Color.green);
+			graphics.setColor(Color.gray);
 		}
 
 		float radius = ball.getRadius() * SCALE;
@@ -69,7 +70,7 @@ public class Renderer {
 	}
 
 	private static void render(VelocityLine line, Graphics graphics) {
-		graphics.setColor(Color.black);
+		graphics.setColor(Color.white);
 
 		double[] start = line.getStart();
 		double[] end   = line.getEnd();
@@ -92,7 +93,7 @@ public class Renderer {
 	}
 
 	public static void render(String text, float x, float y, Graphics graphics) {
-		graphics.setColor(Color.black);
+		graphics.setColor(Color.white);
 		graphics.drawString(text, x, y);
 	}
 
@@ -109,9 +110,9 @@ public class Renderer {
 		float xOffset = (width - fontWidth) / 2;
 		float yOffset = (height - fontHeight) / 2;
 
-		graphics.setColor(Color.black);
+		graphics.setColor(Color.green);
 		graphics.fillRect(x, y, width, height);
-		graphics.setColor(Color.white);
+		graphics.setColor(Color.black);
 		graphics.drawString(label, x + xOffset, y + yOffset);
 	}
 }

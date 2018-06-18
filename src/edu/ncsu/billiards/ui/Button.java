@@ -1,15 +1,16 @@
-package ivanov.ncsu.billiards.ui;
+package edu.ncsu.billiards.ui;
 
 import org.newdawn.slick.geom.Rectangle;
 
 public class Button {
-	private static final int WIDTH = 150;
-	private static final int HEIGHT = 22;
+	private static final int WIDTH = 200;
+	private static final int HEIGHT = 32;
 
 	private int x;
 	private int y;
 
 	private String label;
+
 
 
 	public Button(String label) {

@@ -1,20 +1,20 @@
-package ivanov.ncsu.billiards.gamestates;
+package edu.ncsu.billiards.gamestates;
 
-import ivanov.ncsu.billiards.Billiards;
-import ivanov.ncsu.billiards.Renderer;
+import edu.ncsu.billiards.Billiards;
+import edu.ncsu.billiards.Renderer;
 
-import ivanov.ncsu.billiards.gameobjects.Cushion;
-import ivanov.ncsu.billiards.gameobjects.Pocket;
-import ivanov.ncsu.billiards.gameobjects.PoolBall;
-import ivanov.ncsu.billiards.gameobjects.VelocityLine;
+import edu.ncsu.billiards.gameobjects.Cushion;
+import edu.ncsu.billiards.gameobjects.Pocket;
+import edu.ncsu.billiards.gameobjects.PoolBall;
+import edu.ncsu.billiards.gameobjects.VelocityLine;
 
-import ivanov.ncsu.billiards.gamestates.GameState;
+import edu.ncsu.billiards.gamestates.GameState;
 
-import ivanov.ncsu.billiards.setups.Setup;
+import edu.ncsu.billiards.setups.Setup;
 
-import ivanov.ncsu.billiards.world.BilliardsWorld;
-import ivanov.ncsu.billiards.world.GameWorld;
-import ivanov.ncsu.billiards.world.PredictionWorld;
+import edu.ncsu.billiards.world.BilliardsWorld;
+import edu.ncsu.billiards.world.GameWorld;
+import edu.ncsu.billiards.world.PredictionWorld;
 
 import org.dyn4j.dynamics.Body;
 
@@ -30,9 +30,9 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class SimulationState implements GameState {
-	
+	// user-facing world
 	private GameWorld gameWorld;
-
+	// world used to predict future collisions
 	private PredictionWorld predictionWorld;
 
 	private Image tableBackground;
@@ -40,6 +40,9 @@ public class SimulationState implements GameState {
 	private InputHandler inputHandler;
 
 	private Billiards game;
+
+
+
 
 
 	public SimulationState(Setup setup) {
@@ -59,6 +62,18 @@ public class SimulationState implements GameState {
 		setUpGameObjects(setup, predictionWorld);
 	}
 
+	/**
+	 * Adds game objects to the specified world.
+	 * 
+	 * This method is utilized because the gameWorld and predictionWorld
+	 * should have the same setup as each other. Objects should be logically
+	 * identical, but should not be the same objects in memory, as
+	 * the prediction world will update the Bodies in the world, and we
+	 * don't want those to change in the game world.
+	 * 
+	 * @param setup the setup used to populate the world with game objects
+	 * @param world the world to add objects to
+	 */
 	public void setUpGameObjects(Setup setup, BilliardsWorld world) {
 		for (Cushion cushion : setup.generateCushions()) {
 			world.addCushion(cushion);

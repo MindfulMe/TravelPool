@@ -1,4 +1,4 @@
-package ivanov.ncsu.billiards.gameobjects;
+package edu.ncsu.billiards.gameobjects;
 
 import org.dyn4j.dynamics.Body;
 import org.dyn4j.dynamics.BodyFixture;
@@ -7,15 +7,27 @@ import org.dyn4j.geometry.Circle;
 import org.dyn4j.geometry.Vector2;
 
 public class Pocket extends Body {
-
-	private float RADIUS = .09f;
+	// 4.25 inches = 0.10795 meters
+	//private float RADIUS = 0.10795f;
+	private float RADIUS = .05f;
 	
+	// the Pocket linked to this Pocket
 	private Pocket destination;
 
+	// the amount of time to send a ball back from this pocket
 	private double timeDifference;
 
+	// the exit direction of pool balls
 	private Vector2 exitDirection;
 
+
+
+	/**
+	 * Constructs a new Pocket.
+	 *
+	 * @param x the x position in meters of the new pocket
+	 * @param y the y position in meters of the new pocket
+	 */
 	public Pocket(float x, float y, Vector2 exitDirection) {
 		Circle circleShape = new Circle(RADIUS);
 
@@ -28,6 +40,8 @@ public class Pocket extends Body {
 		this.exitDirection = exitDirection;
 	}
 
+
+
 	public Pocket getDestination() {
 		return this.destination;
 	}
@@ -35,6 +49,8 @@ public class Pocket extends Body {
 	public void setDestination(Pocket destination) {
 		this.destination = destination;
 	}
+
+
 
 	public double getTimeDifference() {
 		return this.timeDifference;
@@ -44,6 +60,8 @@ public class Pocket extends Body {
 		this.timeDifference = time;
 	}
 
+
+
 	public void setExitDirection(Vector2 direction) {
 		this.exitDirection = direction;
 	}
@@ -52,9 +70,12 @@ public class Pocket extends Body {
 		return this.exitDirection;
 	}
 
+
+
 	public double getRadius() {
 		return RADIUS;
 	}
+
 
 
 	public VelocityLine getVelocityLine() {

@@ -1,7 +1,7 @@
-package ivanov.ncsu.billiards.world;
+package edu.ncsu.billiards.world;
 
-import ivanov.ncsu.billiards.gameobjects.Pocket;
-import ivanov.ncsu.billiards.gameobjects.PoolBall;
+import edu.ncsu.billiards.gameobjects.Pocket;
+import edu.ncsu.billiards.gameobjects.PoolBall;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,10 @@ public class PredictionWorld extends BilliardsWorld {
 	}
 
 	public void runSimulation(GameWorld gameWorld) {
-
+		// Move all pockets from gameWorld to this prediction world. We cannot
+		// just copy the ball over because a Body can be a member of only one
+		// World at a time. Dyn4j enforces this by throwing an exception if we
+		// try to violate the rule.
 		clearPockets();
 		ArrayList<Pocket> gameWorldPockets = gameWorld.getPockets();
 		while (!gameWorldPockets.isEmpty()) {
@@ -29,6 +32,8 @@ public class PredictionWorld extends BilliardsWorld {
 			this.update(1.0 / 60.0);
 		}
 
+		// Move all pockets back from this prediction world to the
+		// game world.
 		gameWorld.clearPockets();
 		ArrayList<Pocket> predictionWorldPockets = getPockets();
 		while (!predictionWorldPockets.isEmpty()) {
@@ -38,6 +43,14 @@ public class PredictionWorld extends BilliardsWorld {
 		}
 	}
 
+	/**
+	 * Syncs the prediction world with the specified gameWorld.
+	 *
+	 * This method only syncs PoolBalls because cushions, pockets,
+	 * and world settings should already by the same.
+	 * 
+	 * @param gameWorld the world to sync this prediction world to
+	 */
 	private void sync(GameWorld gameWorld) {
 		clearCurrentBalls();
 
